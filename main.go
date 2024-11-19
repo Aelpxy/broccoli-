@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/aelpxy/broccoli/cmd"
-	"github.com/aelpxy/broccoli/models"
+	"github.com/aelpxy/fresh/cmd"
+	"github.com/aelpxy/fresh/models"
 	"github.com/charmbracelet/log"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
@@ -30,6 +30,10 @@ func main() {
 	err = database.AutoMigrate(&models.Bucket{}, &models.Object{})
 	if err != nil {
 		log.Fatal("failed to migrate database", err)
+	}
+
+	if err != nil {
+		log.Fatal(err)
 	}
 
 	cmd.Execute()
