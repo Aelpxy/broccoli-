@@ -1,30 +1,90 @@
-# broccoli
+# Fresh
 
-Broccoli is a fast file server powered by Go.
+Fresh is a modern, efficient file server powered by Go.
 
----
+## Overview
 
-# Building
+Fresh provides a simple API to manage resources.
 
-```
-go build
-```
+## Endpoints
 
-# Usage
+### Bucket API
 
-```
-  broccoli [command]
+### **`POST /api/<bucket-name>`**
 
-Available Commands:
-  completion  Generate the autocompletion script for the specified shell
-  help        Help about any command
-  serve       Serve the application
+Create a new bucket.  
+**Request Body**:
 
-Flags:
-  -h, --help   help for broccoli
-
-Use "broccoli [command] --help" for more information about a command.
+```json
+{ "bucket_name": "a-fresh-object-bucket" }
 ```
 
-# License
-## [MIT](./LICENSE)
+**Response**:
+
+```json
+{
+  "success": true,
+  "data": {
+    "bucket_name": "a-fresh-object-bucket"
+  }
+}
+```
+
+### **`PATCH /api/<bucket-name>`**
+
+Update an existing bucket.
+
+**Request Body**:
+
+```json
+{ "bucket_name": "a-fresh-updated-object-bucket" }
+```
+
+**Response**:
+
+```json
+{
+  "success": true,
+  "data": {
+    "bucket_name": "a-fresh-updated-object-bucket"
+  }
+}
+```
+
+### **`GET /api/<bucket-name>`**
+
+Retrieve information about a specific bucket.
+
+**Response**:
+
+```json
+{
+  "success": true,
+  "data": {
+    "bucket_name": "a-fresh-updated-object-bucket",
+    "objects": 2
+  }
+}
+```
+
+### **`DELETE /api/<bucket-name>`**
+
+Delete a bucket and its objects.
+
+**Response**:
+
+```json
+{
+  "success": true,
+  "data": {
+    "bucket_name": "a-fresh-updated-object-bucket",
+    "objects": 2
+  }
+}
+```
+
+### Objects API
+
+## License
+
+This project is licensed under the [MIT License](./LICENSE).
