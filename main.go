@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/aelpxy/broccoli/cmd"
 	"github.com/aelpxy/broccoli/models"
 	"github.com/charmbracelet/log"
 	"gorm.io/driver/sqlite"
@@ -30,4 +31,6 @@ func main() {
 	if err != nil {
 		log.Fatal("failed to migrate database", err)
 	}
+
+	cmd.Execute()
 }
