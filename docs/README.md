@@ -12,7 +12,7 @@ Each bucket has a `metadata.msgpack` file, which you should not delete, as it st
 
 MessagePack was chosen for its efficiency. Initially, I wanted to store lookups in JSON, but I decided against it because JSON uses significantly more space. The main reason for using SQLite, however, was simplicity.
 
-I plan to load the entire `metadata.msgpack` file into a Bloom filter (which will be updated whenever a new object is uploaded) and then perform lookups.
+I plan to load the entire `metadata.msgpack` file into a ~~Bloom filter~~ thread-safe HashMap (which will be updated whenever a new object is uploaded) and then perform lookups.
 
 ### Is this actually fast enough?
 

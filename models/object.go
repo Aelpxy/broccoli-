@@ -15,7 +15,9 @@ type Object struct {
 }
 
 type ObjectMetadata struct {
-	ID   string `msgpack:"id"`
-	Path string `msgpack:"path"`
-	Hash string `msgpack:"hash"`
+	ID         string   `msgpack:"id"`
+	Path       string   `msgpack:"path"`
+	Hash       string   `msgpack:"hash"`
+	Private    bool     `msgpack:"private"`
+	AccessKeys []string `msgpack:"access_keys"`
 }
