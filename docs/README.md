@@ -4,9 +4,9 @@
 
 When you create a bucket, a record is created in SQLite, which is running in WAL mode for the best possible performance. The same happens when an object is uploaded — a record is created that maps the object to the bucket. Behind the scenes, it’s actually a folder (the core bucket), which can contain other folders and files (which we call objects).
 
-> A bucket is a container of files called objects.
+- A bucket is a container of files called objects.
 
-> An object is a file with metadata attached.
+- An object is a file with metadata attached.
 
 Each bucket has a `metadata.msgpack` file, which you should not delete, as it stores metadata for faster lookups to retrieve and send back objects. If this file is not found, a new one will be created based on the files in the bucket and the SQLite database.
 
